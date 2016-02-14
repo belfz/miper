@@ -17,3 +17,11 @@ html, body {
 #main circle:hover {
     cursor: move;
 }
+
+#main circle.plus:hover {
+    cursor: pointer;
+}
+
+#main circle.minus:hover {
+    cursor: pointer;
+}

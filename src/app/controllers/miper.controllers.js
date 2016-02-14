@@ -32,10 +32,6 @@ angular.module('miper.controllers', [])
 
       const s = Snap("#main");
       let p1 = new Idea(s, undefined, 500, 100, updateCallback);
-      let p2 = new Idea(s, p1, 450, 150, updateCallback);
-      let p3 = new Idea(s, p1, 550, 150, updateCallback);
-      let p4 = new Idea(s, p2, 450, 200, updateCallback);
-      let p5 = new Idea(s, p4, undefined, undefined, updateCallback);
     });
 
 export default angular.module('miper.controllers');
