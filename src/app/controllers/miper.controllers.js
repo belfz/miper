@@ -21,7 +21,7 @@ angular.module('miper.controllers', [])
           this.loginErrorVisible = true;
           console.log(error.reason);
         });
-      }
+      };
     })
     .controller('WorkbenchController', function (id) {
       this.id = id;
