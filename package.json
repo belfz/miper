@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "webpack-dev": "node ./node_modules/webpack/bin/webpack.js -w --config webpack.config.js",
-    "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "server": "node server.js"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "server": "node server.js",
+    "styles": "node ./node_modules/.bin/node-sass ./src/app/styles/main.scss -o ./dist",
+    "styles-watch": "npm run styles && node ./node_modules/.bin/node-sass ./src/app/styles/main.scss -o ./dist -w"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +22,7 @@
     "imports-loader": "^0.6.5",
     "jshint": "^2.9.1",
     "jshint-loader": "^0.8.3",
+    "node-sass": "^3.4.2",
     "snapsvg": "^0.4.0",
     "uuid": "^2.0.1",
     "webpack": "^1.12.12",
