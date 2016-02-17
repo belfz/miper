@@ -13,12 +13,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', expressJwt({secret: secret}));
 
-// !use when webpack-dev-server is not used!
-// app.use(express.static(path.join(__dirname, 'dist'), {index: false}));
-// app.get('/', function (req, res) {
-//   res.sendFile('dist/index.html', {root: __dirname});
-// });
-
 app.post('/auth', function (req, res) {
   if (!(req.body.username === 'admin' && req.body.password === 'admin')) {
     res.send(401, 'Wrong user or password');
@@ -36,20 +30,12 @@ app.post('/auth', function (req, res) {
   res.json({token: token});
 });
 
-app.get('/api/restricted', function (req, res) {
-  console.log(req.user);
-  console.log('user ' + req.user.email + ' is calling /api/restricted');
-  res.json({
-    info: 'This is some restricted info from the server!'
-  });
-});
-
 /*
  * Server
  *
  */
-app.set('port', 3470);
+app.set('port', 3471);
 
 var server = app.listen(app.get('port'), function () {
-  console.log('data mock server is running');
+  console.log('auth server is running');
 });

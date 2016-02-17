@@ -7,6 +7,7 @@
     "webpack-dev": "node ./node_modules/webpack/bin/webpack.js -w --config webpack.config.js",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "server": "node server.js",
+    "authServer": "node authServer.js",
     "styles": "node ./node_modules/.bin/node-sass ./src/app/styles/main.scss -o ./dist",
     "styles-watch": "npm run styles && node ./node_modules/.bin/node-sass ./src/app/styles/main.scss -o ./dist -w"
   },

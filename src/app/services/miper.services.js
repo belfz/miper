@@ -1,6 +1,7 @@
 import angular from 'angular';
 
 const BACKEND = 'http://localhost:3470';
+const AUTH = 'http://localhost:3471';
 
 angular.module('miper.services', [])
     .service('LocalStorageService', function ($window) {
@@ -14,7 +15,7 @@ angular.module('miper.services', [])
     })
     .service('AuthService', function ($http, $q, LocalStorageService) {
       this.login = function (user) {
-        return $http.post(`${BACKEND}/auth`, user).then(function (res) {
+        return $http.post(`${AUTH}/auth`, user).then(function (res) {
           window.console.log(res);
           user.token = res.data.token;
           user.authenticated = true;
