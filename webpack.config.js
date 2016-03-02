@@ -14,15 +14,6 @@ module.exports = {
     inline: true,
     contentBase: './dist'
   },
-  plugins: [
-    //new webpack.optimize.UglifyJsPlugin({
-    //  minimize: true,
-    //  compress: {
-    //    warnings: false
-    //  }
-    //});
-  ],
-
   module: {
     preLoaders: [
       {
@@ -37,7 +28,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015']
         }
       }
     ]

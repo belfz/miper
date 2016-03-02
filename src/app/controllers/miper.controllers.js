@@ -1,6 +1,7 @@
 import angular from 'angular';
 import Idea from '../model/Idea';
 import Snap from 'imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js';
+import 'imports-loader?this=>window,fix=>module.exports=0!snap.svg.zpd/snap.svg.zpd.js';
 
 console.log(Snap);
 
@@ -28,10 +29,14 @@ angular.module('miper.controllers', [])
 
       function updateCallback () {
         console.log('updated!');
+        paper.zpd('destroy');
+        paper.zpd({zoom: true});
       }
 
-      const s = Snap("#main");
-      let p1 = new Idea(s, undefined, 500, 100, updateCallback);
+      const paper = Snap("#main");
+      //paper.circle(30, 30, 20);
+      let p1 = new Idea(paper, undefined, 500, 100, updateCallback);
+      paper.zpd({zoom: true});
     });
 
 export default angular.module('miper.controllers');

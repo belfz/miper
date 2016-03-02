@@ -38,12 +38,14 @@ class Idea {
       'class': 'minus'
     });
 
+    onUpdateCallback();
+
     this.plus.click(() => {
       //add new child: [distance]px below the parent and [distance]px to the right of most right child.
       let x = this.children.length ? this.children.map(c => c.x2)
           .reduce((p, n) => Math.max(p, n), 0) + distance : this.x2 - distance;
       let y = this.y2 + distance;
-      new Idea(paper, this, x, y, function () {});
+      new Idea(paper, this, x, y, onUpdateCallback);
     });
 
     this.minus.click(() => {
@@ -87,7 +89,9 @@ class Idea {
     this.children.forEach(child => child.notify(dx, dy));
   }
 
-  start () { }
+  //stopPropagation to prevent clash with pan action
+  start (a, b, e) { e.stopPropagation();
+                    }
 
   stop () {
     this.x2 = +this.line.attr('x2');
