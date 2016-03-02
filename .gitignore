@@ -1,4 +1,5 @@
 node_modules/
 dist/bundle.min.js
 dist/main.css
+dist/*.map
 .idea/
